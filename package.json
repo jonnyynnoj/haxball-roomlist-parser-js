@@ -1,0 +1,20 @@
+{
+  "name": "haxball-roomlist-parser",
+  "version": "1.0.0",
+  "main": "build/index.js",
+  "types": "build/index.d.ts",
+  "license": "MIT",
+  "scripts": {
+    "build": "tsc"
+  },
+  "dependencies": {
+    "axios": "^0.16.2",
+    "pako": "^1.0.5",
+    "smart-buffer": "^3.0.3"
+  },
+  "devDependencies": {
+    "@types/node": "^8.0.25",
+    "@types/pako": "^1.0.0",
+    "typescript": "^2.4.2"
+  }
+}
