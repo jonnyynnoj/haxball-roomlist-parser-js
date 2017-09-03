@@ -4,8 +4,10 @@
   "main": "build/index.js",
   "types": "build/index.d.ts",
   "license": "MIT",
+  "repository": "jonnyynnoj/haxball-replay-parser-js",
   "scripts": {
-    "build": "tsc"
+    "build": "tsc",
+    "prepublish": "tsc"
   },
   "dependencies": {
     "axios": "^0.16.2",
