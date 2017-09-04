@@ -2,6 +2,10 @@
 
 Parses the [haxball](http://haxball.com) room list
 
+```
+npm install jonnyynnoj/haxball-roomlist-parser
+```
+
 ## Usage
 
 ```ts
