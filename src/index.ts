@@ -14,7 +14,9 @@ export interface Room {
     longitude: number;
 };
 
-const URL = 'http://www.haxball.com/list3';
+const domain = 'http://www.haxball.com/';
+const referer = domain + 'index.html';
+const url = domain + 'list3';
 
 const readString = function (buffer: SmartBuffer): string {
     const length = buffer.readUInt16BE();
@@ -22,7 +24,12 @@ const readString = function (buffer: SmartBuffer): string {
 };
 
 const getRawRoomData = function (url: string): Promise<Uint8Array> {
-    return axios.get(url, { responseType: 'arraybuffer' })
+    const config = {
+        headers: { referer },
+        responseType: 'arraybuffer'
+    };
+
+    return axios.get(url, config)
         .then(response => inflate(response.data));
 };
 
@@ -41,7 +48,7 @@ const parseRoom = function (buffer: SmartBuffer): Room {
 };
 
 export const fetchRooms = async function (): Promise<Room[]> {
-    const roomData = await getRawRoomData(URL);
+    const roomData = await getRawRoomData(url);
     const buffer = SmartBuffer.fromBuffer(new Buffer(roomData));
     const rooms: Room[] = [];
 
